@@ -1,0 +1,55 @@
+// файл обнуляющих стилей
+@import "null.scss";
+
+//Переменные для блока
+$color_1:#000;
+$color_2:#fff;
+$fz:80px;
+
+// шаблон №1
+.tplborder{
+    border-bottom:5px dashed red;
+    font-size: 100px;
+}
+
+@mixin fontz($f,$c){
+    font-size: $f;
+    color: $c;
+}
+
+.block {
+    width: 300px / 960px * 100%;
+    padding: 30px;
+    line-height: 60px;
+    background: #666;
+   
+    .block__text{
+        font-size: $fz;
+        span{
+            color: green;
+        }
+    }
+}
+
+
+.link{
+    @include fontz(30px,green);
+    color: $color_1;
+    text-decoration: underline;
+    font-size: $fz;
+    .block &{
+        font-size: $fz;
+    }
+
+    &:hover{
+        color: $color_2;
+        text-decoration: none;
+    }
+    @extend .tplborder;
+}
+
+.link-2{
+    @include fontz(50px,green);
+    @extend .tplborder;
+}
+
